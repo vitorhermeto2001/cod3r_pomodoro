@@ -6,8 +6,8 @@ import 'package:provider/provider.dart';
 class EntradaTempo extends StatelessWidget {
   final String titulo;
   final int valor;
-  final Function incrementar;
-  final Function decrementar;
+  final void Function() incrementar;
+  final void Function() decrementar;
 
   const EntradaTempo({
     Key? key,
@@ -38,7 +38,10 @@ class EntradaTempo extends StatelessWidget {
             ),
             Text(
               '${this.valor} min',
-              style: TextStyle(color: primaryColor),
+              style: TextStyle(
+                color: primaryColor,
+                fontSize: 18,
+              ),
             ),
             BotaoEntradaTempo(
               icon: Icons.arrow_upward,

@@ -12,12 +12,15 @@ abstract class _PomodoroStoreBase with Store {
 
   @action
   void incrementarTempoTrabalho() {
-    tempoTrabalho--;
+    tempoTrabalho++;
   }
 
   @action
   void decrementarTempoTrabalho() {
-    tempoTrabalho++;
+    if (tempoTrabalho != 0)
+      tempoTrabalho--;
+    else
+      tempoTrabalho = 0;
   }
 
   @action
@@ -27,6 +30,9 @@ abstract class _PomodoroStoreBase with Store {
 
   @action
   void decrementarTempoDescanso() {
-    tempoDescanso--;
+    if (tempoDescanso != 0)
+      tempoDescanso--;
+    else
+      tempoDescanso = 0;
   }
 }

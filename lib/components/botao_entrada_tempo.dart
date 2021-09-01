@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 
 class BotaoEntradaTempo extends StatelessWidget {
   final IconData icon;
-  final Function function;
+  final void Function() function;
 
   const BotaoEntradaTempo({
     Key? key,
@@ -17,7 +17,7 @@ class BotaoEntradaTempo extends StatelessWidget {
     final theme = Theme.of(context);
 
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: function,
       child: Icon(
         icon,
         color: theme.primaryColor,
