@@ -1,3 +1,4 @@
+import 'package:cod3r_cronometro/components/cronometro.dart';
 import 'package:cod3r_cronometro/components/entrada_tempo.dart';
 import 'package:flutter/material.dart';
 
@@ -7,33 +8,31 @@ class Pomodoro extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          "Pomodoro",
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
+      body: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Expanded(
+              child: Cronometro(),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  EntradaTempo(
+                    titulo: 'Trabalho',
+                    valor: 25,
+                  ),
+                  EntradaTempo(
+                    titulo: 'Descanso',
+                    valor: 5,
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              EntradaTempo(
-                titulo: 'Trabalho',
-                valor: 25,
-              ),
-              EntradaTempo(
-                titulo: 'Descanso',
-                valor: 5,
-              ),
-            ],
-          ),
-        ],
       ),
     );
   }
