@@ -1,12 +1,15 @@
 import 'package:cod3r_cronometro/components/cronometro.dart';
 import 'package:cod3r_cronometro/components/entrada_tempo.dart';
+import 'package:cod3r_cronometro/store/pomodoro_store.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Pomodoro extends StatelessWidget {
   const Pomodoro({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final store = Provider.of<PomodoroStore>(context);
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       body: SafeArea(
@@ -23,11 +26,15 @@ class Pomodoro extends StatelessWidget {
                 children: [
                   EntradaTempo(
                     titulo: 'Trabalho',
-                    valor: 25,
+                    valor: store.tempoTrabalho,
+                    incrementar: store.incrementarTempoTrabalho,
+                    decrementar: store.decrementarTempoTrabalho,
                   ),
                   EntradaTempo(
                     titulo: 'Descanso',
-                    valor: 5,
+                    valor: store.tempoDescanso,
+                    incrementar: store.incrementarTempoDescanso,
+                    decrementar: store.decrementarTempoDescanso,
                   ),
                 ],
               ),
